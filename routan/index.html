@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肉弹-硬核肉弹战士养成与游戏攻略指南</title>
+    <meta name="description" content="本站提供肉弹战士的详细图鉴、技能搭配策略、肉弹坦克玩法解析及肉弹类型分类攻略，助你成为战场上的终极肉弹。">
+    <meta name="keywords" content="肉弹,肉弹战士,肉弹坦克,肉弹游戏,游戏攻略,肉弹图鉴">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary: #ff4757;
+            --secondary: #2f3542;
+            --accent: #ffa502;
+            --bg-body: #f1f2f6;
+            --bg-card: #ffffff;
+            --text-main: #2f3542;
+            --text-light: #747d8c;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--secondary);
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #e84118;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #57606f 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.1);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* Type Grid */
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .type-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .type-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .type-card h3 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.25rem;
+        }
+
+        .type-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: var(--spacing-sm);
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        /* Guide List */
+        .guide-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-img {
+            height: 180px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .guide-content {
+            padding: var(--spacing-lg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-tag {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+        }
+
+        .guide-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .guide-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-md);
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: white;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .faq-item {
+            border-left: 3px solid var(--accent);
+            padding-left: var(--spacing-md);
+        }
+
+        .faq-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary);
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .footer-links a {
+            color: #a4b0be;
+            margin-left: var(--spacing-md);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #747d8c;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: var(--spacing-md) 0;
+                gap: var(--spacing-md);
+            }
+
+            nav ul {
+                gap: var(--spacing-md);
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <div class="logo">肉弹<span>战士</span></div>
+        <nav>
+            <ul>
+                <li><a href="#types">类型图鉴</a></li>
+                <li><a href="#guides">实战攻略</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="cta-btn">加入社区</a>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>重塑战场：硬核肉弹战士指南</h1>
+            <p>在激烈的战场中，肉弹战士不仅仅是肉盾，更是团队的战术核心。掌握正确的类型选择、装备搭配与技能释放时机，让你的肉弹成为敌人的噩梦。</p>
+            <div class="hero-tags">
+                <span class="tag">高防御</span>
+                <span class="tag">技能控制</span>
+                <span class="tag">团队核心</span>
+                <span class="tag">生存专家</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types Section -->
+    <section id="types">
+        <div class="container">
+            <div class="section-header">
+                <h2>肉弹类型图鉴</h2>
+                <p>了解不同肉弹的特性，才能在战场上做出最佳选择</p>
+            </div>
+            <div class="type-grid">
+                <article class="type-card">
+                    <div class="type-icon">🛡️</div>
+                    <h3>重型坦克型</h3>
+                    <p>拥有最高的物理和魔法防御力，专注于承受伤害并保护后排输出。行动速度较慢，适合阵地战。</p>
+                    <div class="stat-row">
+                        <span>防御力: S</span>
+                        <span>机动性: C</span>
+                    </div>
+                </article>
+                <article class="type-card">
+                    <div class="type-icon">💥</div>
+                    <h3>爆破冲击型</h3>
+                    <p>通过自爆或技能造成范围伤害。虽然自身脆弱，但能瞬间改变战场局势，是开团利器。</p>
+                    <div class="stat-row">
+                        <span>爆发力: S</span>
+                        <span>生存力: C</span>
+                    </div>
+                </article>
+                <article class="type-card">
+                    <div class="type-icon">🌀</div>
+                    <h3>粘性防御型</h3>
+                    <p>能够减缓周围敌人的移动速度，通过技能持续造成伤害并吸收护盾。适合限制敌方走位。</p>
+                    <div class="stat-row">
+                        <span>控制力: S</span>
+                        <span>持续输出: B</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section id="guides" style="background-color: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心实战攻略</h2>
+                <p>从入门到精通，掌握肉弹战士的生存与击杀艺术</p>
+            </div>
+            <div class="guide-list">
+                <article class="guide-card">
+                    <div class="guide-img" style="background-image: url('https://picsum.photos/seed/tank/400/250');"></div>
+                    <div class="guide-content">
+                        <span class="guide-tag">基础教学</span>
+                        <h3>如何选择第一件肉弹装备？</h3>
+                        <p>新手玩家常犯的错误是盲目堆砌防御属性。本指南将教你如何根据敌方阵容选择生命值、护甲或魔抗装备。</p>
+                        <a href="#" class="read-more">阅读完整攻略 &rarr;</a>
+                    </div>
+                </article>
+                <article class="guide-card">
+                    <div class="guide-img" style="background-image: url('https://picsum.photos/seed/formation/400/250');"></div>
+                    <div class="guide-content">
+                        <span class="guide-tag">阵容搭配</span>
+                        <h3>肉弹坦克的最佳阵型配置</h3>
+                        <p>一个优秀的阵型能让肉弹战士发挥最大价值。探讨“一字长蛇阵”与“倒三角阵型”在团战中的优劣。</p>
+                        <a href="#" class="read-more">阅读完整攻略 &rarr;</a>
+                    </div>
+                </article>
+                <article class="guide-card">
+                    <div class="guide-img" style="background-image: url('https://picsum.photos/seed/skill/400/250');"></div>
+                    <div class="guide-content">
+                        <span class="guide-tag">进阶技巧</span>
+                        <h3>技能释放时机与走位</h3>
+                        <p>不要站在原地挨打！学习如何利用地形进行拉扯，以及技能冷却时的紧急闪避技巧。</p>
+                        <a href="#" class="read-more">阅读完整攻略 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+                <p>关于肉弹战士的疑惑，这里都有答案</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>肉弹战士是否需要高攻击力？</h4>
+                    <p>肉弹战士的核心属性是生存能力（生命值、护甲、魔抗）。虽然部分技能带有反伤或减伤效果，但优先保证坦度才是关键。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>如何克制高爆发的肉弹？</h4>
+                    <p>面对高爆发肉弹，建议携带净化技能，并利用控制技能打断其关键连招。分散站位可以减少群体控制技能的影响。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>肉弹在后期是否乏力？</h4>
+                    <p>后期肉弹通过装备成型，生存能力极强，能吸收大量伤害为队友创造输出环境，是团战不可或缺的角色。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>新手推荐哪个类型的肉弹？</h4>
+                    <p>对于新手，推荐“重型坦克型”。操作相对简单，容错率高，只要站得住就能为团队提供巨大贡献。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="logo" style="color: white;">肉弹<span>战士</span>指南</div>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">免责声明</a>
+            <a href="#">联系合作</a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 肉弹战士攻略网 版权所有
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
