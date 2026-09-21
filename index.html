@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="战斗贼天赋详解：魔兽世界潜行者战斗系专精攻略，包含核心天赋加点、输出手法循环、爆发时机及生存技巧，助你成为副本与竞技场中的利刃。">
+    <meta name="keywords" content="战斗贼天赋, 魔兽世界潜行者, 战斗贼攻略, wow盗贼输出, 被动技能">
+    <title>战斗贼天赋-魔兽世界潜行者战斗系输出循环与爆发技巧详解</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --bg-header: rgba(30, 30, 30, 0.95);
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #c41e3a; /* Warlock Red/Gaming Red vibe */
+            --accent-hover: #e0284a;
+            --border: #333;
+            --highlight: #ffd700;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --spacing-unit: 1rem;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+
+        /* Header & Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--bg-header);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span { color: var(--text-main); }
+
+        nav ul { display: flex; gap: 2rem; }
+        nav a { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); }
+        nav a:hover, nav a.active { color: var(--accent); }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://picsum.photos/seed/wowrogue/1920/600') no-repeat center center/cover;
+            padding: 6rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #ccc;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        .btn:hover { background-color: var(--accent-hover); }
+        .btn:active { transform: scale(0.98); }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-main);
+        }
+
+        /* Talent Grid */
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .talent-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .talent-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .talent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .talent-name { font-weight: bold; font-size: 1.1rem; }
+        .talent-rank { font-size: 0.9rem; color: var(--text-muted); background: #333; padding: 2px 8px; border-radius: 12px; }
+
+        .talent-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .talent-bonus {
+            font-size: 0.85rem;
+            color: var(--highlight);
+            border-top: 1px solid #333;
+            padding-top: 0.8rem;
+        }
+
+        /* Core Mechanics */
+        .mechanics-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .mechanics-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background-color: var(--accent);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-text h4 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .step-text p { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* Sidebar Info */
+        .sidebar-widget {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-widget h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .stat-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #333;
+            font-size: 0.95rem;
+        }
+
+        .stat-list li:last-child { border-bottom: none; }
+        .stat-val { color: var(--accent); font-weight: bold; }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th { color: var(--text-muted); font-weight: 600; }
+        .comparison-table tr:hover { background-color: rgba(255,255,255,0.02); }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover { background-color: rgba(255,255,255,0.02); }
+        .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { color: var(--accent); }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
+            .mechanics-layout { grid-template-columns: 1fr; }
+            .comparison-table { display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                <span>CombatRogue</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">天赋与输出</a></li>
+                    <li><a href="#">属性优先级</a></li>
+                    <li><a href="#">PVE 指南</a></li>
+                    <li><a href="#">PVP 攻略</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>战斗贼天赋</h1>
+        <p>掌握刀锋的艺术。深入解析魔兽世界战斗系潜行者的核心机制、爆发循环与装备选择，打造极致输出体验。</p>
+        <button class="btn" onclick="document.getElementById('talents').scrollIntoView({behavior: 'smooth'})">查看天赋加点</button>
+    </section>
+
+    <main class="container">
+        
+        <!-- 核心天赋解析 -->
+        <section id="talents">
+            <h2 class="section-title">核心天赋解析</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-muted);">
+                战斗贼天赋侧重于持续的高爆发伤害和能量利用率。以下是目前版本主流的战斗系天赋选择与解析。
+            </p>
+            
+            <div class="talent-grid">
+                <!-- 天赋卡片 1 -->
+                <article class="talent-card">
+                    <div class="talent-header">
+                        <span class="talent-name">鲜血敏锐</span>
+                        <span class="talent-rank">5/5</span>
+                    </div>
+                    <p class="talent-desc">
+                        每当你的致命一击造成伤害时，你的攻击强度提高2%。这是一个贯穿战斗全程的被动技能，是提升DPS的根本来源。
+                    </p>
+                    <div class="talent-bonus">效果：满级提供100点攻击强度加成。</div>
+                </article>
+
+                <!-- 天赋卡片 2 -->
+                <article class="talent-card">
+                    <div class="talent-header">
+                        <span class="talent-name">无情</span>
+                        <span class="talent-rank">5/5</span>
+                    </div>
+                    <p class="talent-desc">
+                        当你的近战攻击造成暴击时，你有20%的几率使你的下一次攻击必定暴击，并使你的攻击速度提高10%。
+                    </p>
+                    <div class="talent-bonus">效果：大幅提升连击点技能的暴击率与爆发频率。</div>
+                </article>
+
+                <!-- 天赋卡片 3 -->
+                <article class="talent-card">
+                    <div class="talent-header">
+                        <span class="talent-name">邪恶攻击</span>
+                        <span class="talent-rank">3/3</span>
+                    </div>
+                    <p class="talent-desc">
+                        你的邪恶攻击有30%的几率使你的下一个背刺技能的冷却时间减少3秒。
+                    </p>
+                    <div class="talent-bonus">效果：强化爆发循环中的技能衔接能力。</div>
+                </article>
+
+                <!-- 天赋卡片 4 -->
+                <article class="talent-card">
+                    <div class="talent-header">
+                        <span class="talent-name">预谋</span>
+                        <span class="talent-rank">1/1</span>
+                    </div>
+                    <p class="talent-desc">
+                        立即获得3个连击点，并在接下来的15秒内，你的所有冷却时间少于30秒的主动技能的冷却时间减少5秒。
+                    </p>
+                    <div class="talent-bonus">效果：战斗贼的灵魂技能，用于起手爆发和紧急爆发。</div>
+                </article>
+
+                <!-- 天赋卡片 5 -->
+                <article class="talent-card">
+                    <div class="talent-header">
+                        <span class="talent-name">切割</span>
+                        <span class="talent-rank">1/1</span>
+                    </div>
+                    <p class="talent-desc">
+                        降低目标的护甲，持续30秒。攻击速度提高10%。
+                    </p>
+                    <div class="talent-bonus">效果：必须保持的减益技能，保证DPS的稳定输出。</div>
+                </article>
+
+                <!-- 天赋卡片 6 -->
+                <article class="talent-card">
+                    <div class="talent-header">
+                        <span class="talent-name">无情打击</span>
+                        <span class="talent-rank">5/5</span>
+                    </div>
+                    <p class="talent-desc">
+                        消耗连击点时，有50%的几率回复5点能量值。
+                    </p>
+                    <div class="talent-bonus">效果：极高的能量回复率，是维持高频率输出的关键。</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 输出循环与机制 -->
+        <section id="mechanics">
+            <div class="mechanics-layout">
+                <div class="mechanics-content">
+                    <h3>战斗循环：爆发与持续输出</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
+                        战斗贼的输出核心在于“能量管理”与“连击点控制”。通过合理利用技能冷却时间，实现伤害最大化。
+                    </p>
+
+                    <div class="flow-steps">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-text">
+                                <h4>起手爆发</h4>
+                                <p>使用 <strong>预谋</strong> 瞬间攒满5个连击点，立即施放 <strong>肾击</strong> 控制目标，随后开启 <strong>邪恶诡计</strong> 和 <strong>背刺</strong> 进行首轮爆发。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-text">
+                                <h4>能量管理</h4>
+                                <p>保持 <strong>切割</strong> 在身上，利用 <strong>邪恶攻击</strong> 配合 <strong>背刺</strong> 的减CD效果，维持高频率的背刺输出。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                <h4>终结技选择</h4>
+                                <p>在能量充足的情况下，优先使用 <strong>影袭</strong> 积攒连击点，当有5个点时使用 <strong>杀戮盛宴</strong> 或 <strong>冷血</strong> 开启的 <strong>背刺</strong>。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>技能名称</th>
+                                <th>冷却时间</th>
+                                <th>适用场景</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>背刺</td>
+                                <td>6秒</td>
+                                <td>主要爆发技能，需目标处于背后。</td>
+                            </tr>
+                            <tr>
+                                <td>影袭</td>
+                                <td>无</td>
+                                <td>起手技能，无CD限制，用于攒点。</td>
+                            </tr>
+                            <tr>
+                                <td>伏击</td>
+                                <td>15秒</td>
+                                <td>潜行状态下伤害最高的单体技能。</td>
+                            </tr>
+                            <tr>
+                                <td>肾击</td>
+                                <td>30秒</td>
+                                <td>控制技能，需5连击点，PVP核心。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <aside>
+                    <div class="sidebar-widget">
+                        <h4>属性优先级</h4>
+                        <ul class="stat-list">
+                            <li><span>攻击强度 (AP)</span> <span class="stat-val">最高</span></li>
+                            <li><span>敏捷</span> <span class="stat-val">高</span></li>
+                            <li><span>暴击率</span> <span class="stat-val">中</span></li>
+                            <li><span>急速</span> <span class="stat-val">中</span></li>
+                            <li><span>穿透</span> <span class="stat-val">低</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4>战斗贼小贴士</h4>
+                        <ul class="stat-list" style="padding-left: 1.2rem;">
+                            <li style="list-style: disc; padding-left: 0.5rem;">永远保持在目标背后输出。</li>
+                            <li style="list-style: disc; padding-left: 0.5rem;">预谋的CD转好是爆发信号。</li>
+                            <li style="list-style: disc; padding-left: 0.5rem;">注意Boss机制，不要贪输出而硬吃死亡。</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 常见问题 FAQ -->
+        <section id="faq">
+            <h2 class="section-title">常见问题解答</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">战斗贼在PVP和PVE中有什么区别？</div>
+                <div class="faq-answer">
+                    PVE中主要追求极致的DPS，天赋点数通常全数投入输出技能（如无情、鲜血敏锐）。PVP中则需要保留控制技能（如脚踢、闷棍）和生存技能（如消失、闪避），天赋树中会牺牲部分输出点数来换取控制能力。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何最大化利用预谋技能？</div>
+                <div class="faq-answer">
+                    预谋最好在起手时使用，配合邪恶攻击和背刺瞬间打出5连击点并起手控制。或者在BOSS血量较低（如30%以下）准备开启爆发阶段时使用，配合冷血和终结技打出爆发伤害。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">能量不足时应该怎么做？</div>
+                <div class="faq-answer">
+                    如果没有连击点，使用影袭；如果能量不足以施放5连击点的终结技，可以使用邪恶攻击或背刺（如果减CD生效）。切勿浪费能量在低伤害技能上。
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 魔兽世界战斗贼攻略站. 本站内容仅供参考，游戏数据可能随版本更新而变化。</p>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项状态
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
