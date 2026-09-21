@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深夜视频-沉浸式助眠与放松资源库</title>
+    <meta name="description" content="深夜视频平台提供海量高质量的助眠白噪音、自然声音、冥想引导及舒缓视觉内容。无论是失眠困扰还是寻求宁静，这里都有您需要的放松体验。">
+    <meta name="keywords" content="深夜视频,助眠视频,白噪音,冥想,放松,自然声音,ASMR,放松视频">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #1a1d24;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a3b1;
+            --accent-color: #6c5ce7;
+            --accent-hover: #5649c0;
+            --border-color: #2d3340;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(15, 17, 21, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 var(--spacing-unit);
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .search-btn:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #2d3340 0%, #0f1115 70%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-secondary);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Categories Grid */
+        .section-container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .card-image {
+            height: 160px;
+            background-color: #2d3340;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.7;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Featured Playlist */
+        .featured-section {
+            background-color: #15181e;
+            padding: 60px 0;
+        }
+
+        .featured-layout {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .featured-info h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .featured-info p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .feature-icon {
+            color: var(--accent-color);
+        }
+
+        .featured-visual {
+            background: linear-gradient(135deg, #2d3340 0%, #1a1d24 100%);
+            border-radius: 16px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .visual-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            margin-top: 60px;
+            background-color: #0a0c0f;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #1a1d24;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .featured-layout {
+                grid-template-columns: 1fr;
+            }
+            .featured-visual {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-color)">
+                    <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                </svg>
+                深夜<span>视频</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">助眠白噪音</a>
+                <a href="#">自然声音</a>
+                <a href="#">冥想引导</a>
+                <a href="#">ASMR</a>
+            </nav>
+            <button class="search-btn">搜索视频</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>让夜晚更宁静</h1>
+                <p>精选全球最舒缓的深夜视频与音频，帮助您缓解失眠，找回深度睡眠。无需等待，即刻沉浸。</p>
+                <div class="hero-actions">
+                    <a href="#categories" class="btn btn-primary">开始放松</a>
+                    <a href="#" class="btn btn-secondary">浏览分类</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">热门放松频道</h2>
+                <span class="section-subtitle">基于您的搜索习惯推荐</span>
+            </div>
+            
+            <div class="category-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image" style="background: linear-gradient(180deg, #4b6cb7 0%, #182848 100%);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 3v18M3 12h18"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">自然之声</span>
+                        <h3 class="card-title">雨夜森林</h3>
+                        <p class="card-desc">沉浸式雨声与深夜森林的宁静环境，适合深度睡眠与专注阅读。</p>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image" style="background: linear-gradient(180deg, #0ba360 0%, #3cba92 100%);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">冥想引导</span>
+                        <h3 class="card-title">深度睡眠冥想</h3>
+                        <p class="card-desc">30分钟专业引导冥想，释放白天压力，引导身体进入休息状态。</p>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image" style="background: linear-gradient(180deg, #8E2DE2 0%, #4A00E0 100%);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 12h20M12 2v20"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">视觉助眠</span>
+                        <h3 class="card-title">星空漫游</h3>
+                        <p class="card-desc">缓慢移动的星空与银河，配合舒缓音乐，营造浩瀚宇宙的宁静感。</p>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-image" style="background: linear-gradient(180deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">ASMR</span>
+                        <h3 class="card-title">轻柔耳语</h3>
+                        <p class="card-desc">近距离耳语与轻触音效，帮助集中注意力并缓解焦虑。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Section -->
+        <section class="featured-section">
+            <div class="featured-layout">
+                <div class="featured-info">
+                    <h2>为什么选择深夜视频？</h2>
+                    <p>在深夜时段，人类的感官变得更加敏锐，环境更加安静。利用高质量的视觉和听觉刺激，可以有效调节副交感神经系统，降低心率，诱导困意。</p>
+                    <ul class="feature-list">
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            科学验证的助眠效果
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            无广告干扰的纯净体验
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            多设备同步，随时随地播放
+                        </li>
+                    </ul>
+                </div>
+                <div class="featured-visual">
+                    <div class="visual-circle"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header" style="border:none; margin-bottom:30px;">
+                <h2 class="section-title">常见问题</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    深夜视频适合所有人吗？
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    大部分助眠视频适合大多数人群。但对于耳廓敏感或有特定听觉过敏的人，建议选择低音量或静音视觉类视频。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    这些视频可以下载吗？
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    本站目前提供在线流媒体播放服务，以保护版权内容并确保最佳音质体验。建议在Wi-Fi环境下观看。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    如何设置自动播放？
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    在移动端设置中开启“允许自动播放”，在视频播放列表中选择“循环播放”，即可在入睡时保持视频持续播放。
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 16px; display:inline-block;">
+                    深夜<span>视频</span>
+                </a>
+                <p style="color: #666; font-size: 0.9rem; max-width: 300px;">
+                    专注于为深夜人群提供最优质的放松与助眠内容，致力于改善大众睡眠质量。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>探索</h4>
+                <ul>
+                    <li><a href="#">最新发布</a></li>
+                    <li><a href="#">高分榜单</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助</h4>
+                <ul>
+                    <li><a href="#">使用指南</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">微博</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 深夜视频平台. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Interaction
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
